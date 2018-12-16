@@ -2,8 +2,11 @@ package com.example.janitha.temperassignment
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import com.beust.klaxon.Klaxon
+import com.example.janitha.temperassignment.adapters.JobsAdapter
 import com.example.janitha.temperassignment.objects.Job
+import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +20,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         readJSON("jobsearch.json")
-//        init()
+        init()
+    }
+
+    private fun init() {
+        recyclerViewJobs.layoutManager = LinearLayoutManager(this)
+
+        var allJobs: ArrayList<Job> = ArrayList()
+        allJobs.addAll(firstDayJobs)
+        allJobs.addAll(secondDayJobs)
+        allJobs.addAll(thirdDayJobs)
+
+        recyclerViewJobs.adapter = JobsAdapter(allJobs, this)
     }
 
     private fun readJSON(name: String) {
