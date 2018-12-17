@@ -3,4 +3,6 @@
     <string name="reviews">Reviews</string>
     <string name="open_positions">open position(s)</string>
     <string name="hour_s">(%dh)</string>
+    <string name="km_s">%d km</string>
+    <string name="max_earning_s">€%.2f/h</string>
 </resources>

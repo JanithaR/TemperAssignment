@@ -25,9 +25,9 @@ class JobsAdapter(val items: ArrayList<Job>, val context: Context) : RecyclerVie
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         holder?.titleTextView?.text = items[position].title
-        holder?.maxEarningPerHourTextView?.text = items[position].max_possible_earnings_hour.toString()
+        holder?.maxEarningPerHourTextView?.text = mContext.getString(R.string.max_earning_s).format(items[position].max_possible_earnings_hour)
         holder?.clientNameTextView?.text = items[position].client.name
-        holder?.distanceTextView?.text = items[position].distance.toString()
+        holder?.distanceTextView?.text = mContext.getString(R.string.km_s).format(items[position].distance)
         holder?.ratingBar?.rating = items[position].client.rating.average.toFloat()
         holder?.reviewCountTextView?.text = items[position].client.rating.count.toString()
         holder?.openPositionsTextView?.text = items[position].open_positions.toString()
