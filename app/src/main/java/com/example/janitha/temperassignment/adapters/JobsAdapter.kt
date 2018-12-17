@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.janitha.temperassignment.R
 import com.example.janitha.temperassignment.objects.Job
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item_jobs.view.*
 
 class JobsAdapter(val items: ArrayList<Job>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
@@ -15,7 +16,7 @@ class JobsAdapter(val items: ArrayList<Job>, val context: Context) : RecyclerVie
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         mContext = context
 
-        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.list_item_jobs, parent, false))
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.list_item_jobs_card, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -33,6 +34,13 @@ class JobsAdapter(val items: ArrayList<Job>, val context: Context) : RecyclerVie
         holder?.shiftStartTimeTextView?.text = items[position].shifts[0].start_time
         holder?.shiftDurationTextView?.text = mContext.getString(R.string.hour_s).format(items[position].shifts[0].duration)
         holder?.tempersNeededTextView?.text = items[position].shifts[0].tempers_needed.toString()
+
+        if (items[position].client.photos.isNotEmpty() && items[position].client.photos[0].formats.isNotEmpty()) {
+            Picasso.get()
+                    .load(items[position].client.photos[0].formats[0].cdn_url)
+                    .placeholder(R.drawable.stub_job_photo)
+                    .into(holder?.photoImageView)
+        }
     }
 }
 
