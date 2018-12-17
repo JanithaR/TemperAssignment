@@ -45,15 +45,15 @@ class JobsAdapter(val items: ArrayList<Job>, val context: Context) : RecyclerVie
 }
 
 class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-    val titleTextView = view.textViewTitle
-    val photoImageView = view.imageViewPhoto
-    val maxEarningPerHourTextView = view.textViewMaxEarningPerHour
-    val clientNameTextView = view.textViewClientName
-    val distanceTextView = view.textViewDistance
-    var ratingBar = view.ratingBar
-    var reviewCountTextView = view.textViewReviewCount
-    var openPositionsTextView = view.textViewOpenPositions
-    var shiftStartTimeTextView = view.textViewShiftStartTime
-    var shiftDurationTextView = view.textViewShiftDuration
+    val titleTextView = view.textViewTitle!!
+    val photoImageView = view.imageViewPhoto!!
+    val maxEarningPerHourTextView = view.textViewMaxEarningPerHour!!
+    val clientNameTextView = view.textViewClientName!!
+    val distanceTextView = view.textViewDistance!!
+    var ratingBar = view.ratingBar!!
+    var reviewCountTextView = view.textViewReviewCount!!
+    var openPositionsTextView = view.textViewOpenPositions!!
+    var shiftStartTimeTextView = view.textViewShiftStartTime!!
+    var shiftDurationTextView = view.textViewShiftDuration!!
     var tempersNeededTextView = view.textViewTempersNeeded
 }
