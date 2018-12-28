@@ -27,16 +27,16 @@ class JobsAdapter(private val items: ArrayList<Job>, private val context: Contex
         return items.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val job = items[position]
 
-        holder?.titleTextView?.text = job.title
-        holder?.maxEarningPerHourTextView?.text = mContext.getString(R.string.max_earning_s).format(job.max_possible_earnings_hour)
-        holder?.clientNameTextView?.text = job.client.name
-        holder?.distanceTextView?.text = mContext.getString(R.string.km_s).format(job.distance)
-        holder?.ratingBar?.rating = job.client.rating.average.toFloat()
-        holder?.reviewCountTextView?.text = mContext.getString(R.string.reviews).format(job.client.rating.count)
-        holder?.tempersNeededTextView?.text = job.shifts[0].tempers_needed.toString()
+        holder.titleTextView.text = job.title
+        holder.maxEarningPerHourTextView.text = mContext.getString(R.string.max_earning_s).format(job.max_possible_earnings_hour)
+        holder.clientNameTextView.text = job.client.name
+        holder.distanceTextView.text = mContext.getString(R.string.km_s).format(job.distance)
+        holder.ratingBar.rating = job.client.rating.average.toFloat()
+        holder.reviewCountTextView.text = mContext.getString(R.string.reviews).format(job.client.rating.count)
+        holder.tempersNeededTextView.text = job.shifts[0].tempers_needed.toString()
 
         var infoText:String = mContext.getString(R.string.info).format(job.open_positions, job.shifts[0].start_time, job.shifts[0].duration)
 
@@ -44,13 +44,13 @@ class JobsAdapter(private val items: ArrayList<Job>, private val context: Contex
             infoText = infoText.replace("(s)", "")
         }
 
-        holder?.infoTextView?.text = infoText
+        holder.infoTextView.text = infoText
 
         if (job.client.photos.isNotEmpty() && job.client.photos[0].formats.isNotEmpty()) {
             Picasso.get()
                     .load(job.client.photos[0].formats[0].cdn_url)
                     .placeholder(R.drawable.stub_job_photo)
-                    .into(holder?.photoImageView)
+                    .into(holder.photoImageView)
         }
     }
 }
