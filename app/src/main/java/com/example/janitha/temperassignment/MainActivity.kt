@@ -25,13 +25,21 @@ class MainActivity : AppCompatActivity() {
         // * it makes the data parsing unnecessarily difficult.
         // * therefore, I have resorted to hardcoding here.
         // * check repo README
-        val firstDayJobs: ArrayList<Job> = readJSON("jobsearch.json", application, "2018-05-22")
-        val secondDayJobs: ArrayList<Job> = readJSON("jobsearch.json", application, "2018-05-23")
-        val thirdDayJobs: ArrayList<Job> = readJSON("jobsearch.json", application, "2018-05-24")
+        val firstDayJobs: ArrayList<Job>? = readJSON("jobsearch.json", application, "2018-05-22")
+        val secondDayJobs: ArrayList<Job>? = readJSON("jobsearch.json", application, "2018-05-23")
+        val thirdDayJobs: ArrayList<Job>? = readJSON("jobsearch.json", application, "2018-05-24")
 
-        jobs.addAll(firstDayJobs)
-        jobs.addAll(secondDayJobs)
-        jobs.addAll(thirdDayJobs)
+        if (firstDayJobs != null) {
+            jobs.addAll(firstDayJobs)
+        }
+
+        if (secondDayJobs != null) {
+            jobs.addAll(secondDayJobs)
+        }
+
+        if (thirdDayJobs != null) {
+            jobs.addAll(thirdDayJobs)
+        }
     }
 
     private fun init() {
