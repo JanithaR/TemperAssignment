@@ -23,7 +23,8 @@
                 android:ellipsize="end"
                 android:text="Title"
                 android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/imageViewPhoto"
@@ -52,6 +53,7 @@
                     android:maxLength="10"
                     android:text="$50"
                     android:textColor="@android:color/black"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -66,6 +68,7 @@
                     android:maxLength="40"
                     android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis risus lacinia risus elementum fringilla non ornare justo. Fusce porttitor tellus eget maximus vulputate. Morbi eu molestie felis."
                     android:textColor="@android:color/black"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -87,8 +90,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <RatingBar
                     android:id="@+id/ratingBar"
@@ -98,7 +100,8 @@
                     android:layout_marginRight="8dp"
                     android:layout_weight="0"
                     android:numStars="5"
-                    android:rating="1" />
+                    android:rating="1"
+                    android:layout_marginEnd="8dp" />
 
                 <TextView
                     android:id="@+id/textViewReviewCount"
@@ -107,7 +110,8 @@
                     android:layout_marginRight="8dp"
                     android:layout_weight="0"
                     android:text="20"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:layout_marginEnd="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -124,50 +128,23 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
-                    android:id="@+id/textViewOpenPositions"
+                    android:id="@+id/textViewInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="4dp"
-                    android:layout_weight="0"
-                    android:text="1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="4dp"
-                    android:layout_weight="0"
-                    android:text="@string/open_positions" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="4dp"
-                    android:text="-" />
-
-                <TextView
-                    android:id="@+id/textViewShiftStartTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="4dp"
-                    android:text="09:00" />
-
-                <TextView
-                    android:id="@+id/textViewShiftDuration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:text="@string/info"
+                    android:textColor="@android:color/black"
                     android:layout_marginRight="16dp"
-                    android:layout_weight="0"
-                    android:text="(8h)" />
+                    android:layout_marginEnd="16dp" />
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginRight="4dp"
-                    app:srcCompat="@drawable/ic_group_black_24dp" />
+                    app:srcCompat="@drawable/ic_group_black_24dp"
+                    android:layout_marginEnd="4dp" />
 
                 <TextView
                     android:id="@+id/textViewTempersNeeded"
@@ -175,6 +152,7 @@
                     android:layout_height="wrap_content"
                     android:text="2"
                     android:textColor="@android:color/black" />
+
             </LinearLayout>
 
         </LinearLayout>

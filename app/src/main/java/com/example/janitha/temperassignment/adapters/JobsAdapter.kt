@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import com.example.janitha.temperassignment.R
 import com.example.janitha.temperassignment.objects.Job
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.list_item_jobs.view.*
+import kotlinx.android.synthetic.main.list_item_jobs_card.view.*
 
-class JobsAdapter(val items: ArrayList<Job>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+class JobsAdapter(private val items: ArrayList<Job>, private val context: Context) : RecyclerView.Adapter<ViewHolder>() {
     lateinit var mContext: Context
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
@@ -24,20 +24,20 @@ class JobsAdapter(val items: ArrayList<Job>, val context: Context) : RecyclerVie
     }
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        holder?.titleTextView?.text = items[position].title
-        holder?.maxEarningPerHourTextView?.text = mContext.getString(R.string.max_earning_s).format(items[position].max_possible_earnings_hour)
-        holder?.clientNameTextView?.text = items[position].client.name
-        holder?.distanceTextView?.text = mContext.getString(R.string.km_s).format(items[position].distance)
-        holder?.ratingBar?.rating = items[position].client.rating.average.toFloat()
-        holder?.reviewCountTextView?.text = items[position].client.rating.count.toString()
-        holder?.openPositionsTextView?.text = items[position].open_positions.toString()
-        holder?.shiftStartTimeTextView?.text = items[position].shifts[0].start_time
-        holder?.shiftDurationTextView?.text = mContext.getString(R.string.hour_s).format(items[position].shifts[0].duration)
-        holder?.tempersNeededTextView?.text = items[position].shifts[0].tempers_needed.toString()
+        val job = items[position]
 
-        if (items[position].client.photos.isNotEmpty() && items[position].client.photos[0].formats.isNotEmpty()) {
+        holder?.titleTextView?.text = job.title
+        holder?.maxEarningPerHourTextView?.text = mContext.getString(R.string.max_earning_s).format(job.max_possible_earnings_hour)
+        holder?.clientNameTextView?.text = job.client.name
+        holder?.distanceTextView?.text = mContext.getString(R.string.km_s).format(job.distance)
+        holder?.ratingBar?.rating = job.client.rating.average.toFloat()
+        holder?.reviewCountTextView?.text = job.client.rating.count.toString()
+        holder?.tempersNeededTextView?.text = job.shifts[0].tempers_needed.toString()
+        holder?.infoTextView?.text = mContext.getString(R.string.info).format(job.open_positions, job.shifts[0].start_time, job.shifts[0].duration)
+
+        if (job.client.photos.isNotEmpty() && job.client.photos[0].formats.isNotEmpty()) {
             Picasso.get()
-                    .load(items[position].client.photos[0].formats[0].cdn_url)
+                    .load(job.client.photos[0].formats[0].cdn_url)
                     .placeholder(R.drawable.stub_job_photo)
                     .into(holder?.photoImageView)
         }
@@ -52,8 +52,6 @@ class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val distanceTextView = view.textViewDistance!!
     var ratingBar = view.ratingBar!!
     var reviewCountTextView = view.textViewReviewCount!!
-    var openPositionsTextView = view.textViewOpenPositions!!
-    var shiftStartTimeTextView = view.textViewShiftStartTime!!
-    var shiftDurationTextView = view.textViewShiftDuration!!
-    var tempersNeededTextView = view.textViewTempersNeeded
+    var tempersNeededTextView = view.textViewTempersNeeded!!
+    var infoTextView = view.textViewInfo!!
 }
