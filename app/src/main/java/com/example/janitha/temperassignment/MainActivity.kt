@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
+        // * having the dates as keys in the response is a weird choice of structuring it.
+        // * it makes the data parsing unnecessarily difficult.
+        // * therefore, I have resorted to hardcoding here.
+        // * check repo README
         val firstDayJobs: ArrayList<Job> = readJSON("jobsearch.json", application, "2018-05-22")
         val secondDayJobs: ArrayList<Job> = readJSON("jobsearch.json", application, "2018-05-23")
         val thirdDayJobs: ArrayList<Job> = readJSON("jobsearch.json", application, "2018-05-24")

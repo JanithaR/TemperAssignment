@@ -167,7 +167,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginRight="4dp"
-                    app:srcCompat="@android:drawable/sym_def_app_icon" />
+                    app:srcCompat="@drawable/ic_group_black_24dp" />
 
                 <TextView
                     android:id="@+id/textViewTempersNeeded"
