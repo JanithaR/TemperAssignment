@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Temper Assignment</string>
+    <string name="max_earning_s">€%.2f/u</string>
+    <string name="info">%d open positie(s) - %s (%du)</string>
+    <string name="reviews">%d reviews</string>
+</resources>

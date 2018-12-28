@@ -35,9 +35,16 @@ class JobsAdapter(private val items: ArrayList<Job>, private val context: Contex
         holder?.clientNameTextView?.text = job.client.name
         holder?.distanceTextView?.text = mContext.getString(R.string.km_s).format(job.distance)
         holder?.ratingBar?.rating = job.client.rating.average.toFloat()
-        holder?.reviewCountTextView?.text = job.client.rating.count.toString()
+        holder?.reviewCountTextView?.text = mContext.getString(R.string.reviews).format(job.client.rating.count)
         holder?.tempersNeededTextView?.text = job.shifts[0].tempers_needed.toString()
-        holder?.infoTextView?.text = mContext.getString(R.string.info).format(job.open_positions, job.shifts[0].start_time, job.shifts[0].duration)
+
+        var infoText:String = mContext.getString(R.string.info).format(job.open_positions, job.shifts[0].start_time, job.shifts[0].duration)
+
+        if (job.open_positions == 1) {
+            infoText = infoText.replace("(s)", "")
+        }
+
+        holder?.infoTextView?.text = infoText
 
         if (job.client.photos.isNotEmpty() && job.client.photos[0].formats.isNotEmpty()) {
             Picasso.get()

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Temper Assignment</string>
-    <string name="reviews">Reviews</string>
-    <string name="km_s">%d km</string>
+    <string name="reviews">%d reviews</string>
+    <string name="km_s" translatable="false">%d km</string>
     <string name="max_earning_s">€%.2f/h</string>
     <string name="info">%d open position(s) - %s (%dh)</string>
 </resources>
