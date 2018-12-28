@@ -5,18 +5,22 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.RatingBar
+import android.widget.TextView
 import com.example.janitha.temperassignment.R
 import com.example.janitha.temperassignment.objects.Job
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item_jobs_card.view.*
 
 class JobsAdapter(private val items: ArrayList<Job>, private val context: Context) : RecyclerView.Adapter<ViewHolder>() {
-    lateinit var mContext: Context
+
+    private lateinit var mContext: Context
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         mContext = context
 
-        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.list_item_jobs_card, parent, false))
+        return ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.list_item_jobs_card, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -45,13 +49,13 @@ class JobsAdapter(private val items: ArrayList<Job>, private val context: Contex
 }
 
 class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-    val titleTextView = view.textViewTitle!!
-    val photoImageView = view.imageViewPhoto!!
-    val maxEarningPerHourTextView = view.textViewMaxEarningPerHour!!
-    val clientNameTextView = view.textViewClientName!!
-    val distanceTextView = view.textViewDistance!!
-    var ratingBar = view.ratingBar!!
-    var reviewCountTextView = view.textViewReviewCount!!
-    var tempersNeededTextView = view.textViewTempersNeeded!!
-    var infoTextView = view.textViewInfo!!
+    val titleTextView:TextView = view.textViewTitle as TextView
+    val photoImageView:ImageView = view.imageViewPhoto as ImageView
+    val maxEarningPerHourTextView:TextView = view.textViewMaxEarningPerHour as TextView
+    val clientNameTextView:TextView = view.textViewClientName as TextView
+    val distanceTextView:TextView = view.textViewDistance as TextView
+    var ratingBar:RatingBar = view.ratingBar as RatingBar
+    var reviewCountTextView:TextView = view.textViewReviewCount as TextView
+    var tempersNeededTextView:TextView = view.textViewTempersNeeded as TextView
+    var infoTextView:TextView = view.textViewInfo as TextView
 }
