@@ -13,12 +13,12 @@ import com.example.janitha.temperassignment.objects.Job
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item_jobs_card.view.*
 
-class JobsAdapter(private val items: ArrayList<Job>, private val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+class JobsAdapter(private val items: ArrayList<Job>) : RecyclerView.Adapter<ViewHolder>() {
 
     private lateinit var mContext: Context
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        mContext = context
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        mContext = parent.context
 
         return ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.list_item_jobs_card, parent, false))
     }

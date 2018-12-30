@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var jobs: ArrayList<Job> = ArrayList();
+    private var jobs: ArrayList<Job> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +45,6 @@ class MainActivity : AppCompatActivity() {
     private fun init() {
         recyclerViewJobs.layoutManager = LinearLayoutManager(this)
         recyclerViewJobs.setHasFixedSize(true)
-        recyclerViewJobs.adapter = JobsAdapter(jobs, this)
+        recyclerViewJobs.adapter = JobsAdapter(jobs)
     }
 }
