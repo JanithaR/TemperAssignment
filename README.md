@@ -157,6 +157,7 @@ Instead, simplify a dev's life by doing this.
             ]
          }
       ]
-   }
+   },
+   ...
 ]
 ```
